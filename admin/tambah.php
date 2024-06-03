@@ -9,14 +9,14 @@ if (isset($_POST["submit"])) {
         echo "
             <script>
                 alert('data berhasil ditambahkan!');
-                document.location.href = 'index.php';
+                document.location.href = 'dashboard.php';
             </script>
         ";
     }else {
         echo "
             <script>
                 alert('data gagal ditambahkan!');
-                document.location.href = 'index.php';
+                document.location.href = 'dashboard.php';
             </script>
         ";
     }
@@ -48,8 +48,8 @@ if (isset($_POST["submit"])) {
                 <input type="text" name="album" id="album">
             </li>
             <li>
-                <label for="title">Genre : </label>
-                <input type="text" name="genre" id="genre">
+                <label for="title">Gambar : </label>
+                <input type="file" name="genre" id="genre">
             </li>
             <li>
                 <label for="title">File : </label>

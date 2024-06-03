@@ -3,7 +3,7 @@ require '../functions/functions.php';
 
 // ambil data di url
 $id = $_GET["id"];
-// query data mahasiswa berdasarkan id
+// query data music berdasarkan id
 $msc = query("SELECT * FROM music WHERE id = $id")[0];
 
 //cek apakah tombol submit sudah ditekan atau belum
@@ -14,14 +14,14 @@ if (isset($_POST["submit"])) {
         echo "
             <script>
                 alert('data berhasil diubah!');
-                document.location.href = 'index.php';
+                document.location.href = 'dashboard.php';
             </script>
         ";
     }else {
         echo "
             <script>
                 alert('data gagal diubah!');
-                document.location.href = 'index.php';
+                document.location.href = 'dashboard.php';
             </script>
         ";
     }
@@ -54,8 +54,8 @@ if (isset($_POST["submit"])) {
                 <input type="text" name="album" id="album" value="<?= $msc["album"]; ?>">
             </li>
             <li>
-                <label for="title">Genre : </label>
-                <input type="text" name="genre" id="genre" value="<?= $msc["genre"]; ?>">
+                <label for="title">Gambar : </label>
+                <input type="text" name="gambar" id="gambar" value="<?= $msc["gambar"]; ?>">
             </li>
             <li>
                 <label for="title">File : </label>

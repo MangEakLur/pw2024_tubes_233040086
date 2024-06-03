@@ -13,7 +13,7 @@ if (isset($_POST["cari"]) ) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Admin</title>
+    <title>Dashboard Admin</title>
 </head>
 <body>
     
@@ -34,29 +34,29 @@ if (isset($_POST["cari"]) ) {
 
 <tr>
     <th>No.</th>
-    <th>Aksi</th>
     <th>Title</th>
     <th>Artist</th>
     <th>Album</th>
-    <th>Genre</th>
+    <th>Gambar</th>
     <th>File</th>
+    <th>Aksi</th>
 </tr>
 
 <?php $i = 1; ?>
 <?php foreach( $music as $row ) : ?>
 <tr>
     <td><?= $i; ?></td>
+    <td><?= $row["title"]; ?></td>
+    <td><?= $row["artist"]; ?></td>
+    <td><?= $row["album"]; ?></td>
+    <td><img src="../img/<?php echo $row["gambar"]; ?>" width="100"></td>
+    <td><audio controls>
+    <source src="../audio/<?php echo $row["file"]; ?>" type="audio/mpeg">
+    </audio></td>
     <td>
         <a href="ubah.php?id=<?= $row["id"]; ?>">ubah</a> |
         <a href="hapus.php?id=<?= $row["id"]; ?>" onclick="return confirm('yakin?');">hapus</a>
     </td>
-    <td><?= $row["title"]; ?></td>
-    <td><?= $row["artist"]; ?></td>
-    <td><?= $row["album"]; ?></td>
-    <td><?= $row["genre"]; ?></td>
-    <td><audio controls>
-    <source src="../audio/<?php echo $row["file"]; ?>" type="audio/mpeg">
-    </audio></td>
 </tr>
 <?php $i++ ?>
 <?php endforeach; ?>

@@ -20,14 +20,14 @@ function tambah($data){
     $title = htmlspecialchars($data["title"]);
     $artist = htmlspecialchars($data["artist"]);
     $album = htmlspecialchars($data["album"]);
-    $genre = htmlspecialchars($data["genre"]);
+    $gambar = htmlspecialchars($data["gambar"]);
     
     $file = htmlspecialchars($data["file"]);
 
     // query insert data
-    $query = "INSERT INTO music (title, artist, album, genre, file)
+    $query = "INSERT INTO music (title, artist, album, gambar, file)
                 VALUES
-                ('$title', '$artist', '$album', '$genre', '$file')
+                ('$title', '$artist', '$album', '$gambar', '$file')
                 ";
     mysqli_query($conn, $query);
 
@@ -48,7 +48,7 @@ function ubah($data){
     $title = htmlspecialchars($data["title"]);
     $artist = htmlspecialchars($data["artist"]);
     $album = htmlspecialchars($data["album"]);
-    $genre = htmlspecialchars($data["genre"]);
+    $gambar = htmlspecialchars($data["gambar"]);
     $file = htmlspecialchars($data["file"]);
 
     // query insert data
@@ -56,7 +56,7 @@ function ubah($data){
                     title = '$title',
                     artist = '$artist',
                     album = '$album',
-                    genre = '$genre',
+                    gambar = '$gambar',
                     file = '$file'
                     WHERE id = $id
                     ";
@@ -71,7 +71,7 @@ function cari($keyword){
                 title LIKE '%$keyword%' OR
                 artist LIKE '%$keyword%' OR
                 album LIKE '%$keyword%' OR
-                genre LIKE '%$keyword%'
+                gambar LIKE '%$keyword%'
             ";
         return query($query);
 }
