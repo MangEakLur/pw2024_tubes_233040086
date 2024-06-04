@@ -56,7 +56,15 @@ function ubah($data){
     $title = htmlspecialchars($data["title"]);
     $artist = htmlspecialchars($data["artist"]);
     $album = htmlspecialchars($data["album"]);
-    $gambar = htmlspecialchars($data["gambar"]);
+    $gambarLama = htmlspecialchars($data["gambarLama"]);
+    
+    //cek apakah user pilih gambar baru atau tidak
+    if( $_FILES['gambar'] ['error'] === 4){
+        $gambar = $gambarLama;
+    }else {
+        $gambar = uploadGambar();
+    }
+    
     $file = htmlspecialchars($data["file"]);
 
     // query insert data
