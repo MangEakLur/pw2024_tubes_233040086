@@ -5,6 +5,7 @@ require '../functions/functions.php';
 if (isset($_POST["submit"])) {
 
     // cek apakah data berhasil di tambahkan atau tidak
+
     if( tambah($_POST) > 0) {
         echo "
             <script>
@@ -16,7 +17,7 @@ if (isset($_POST["submit"])) {
         echo "
             <script>
                 alert('data gagal ditambahkan!');
-                document.location.href = 'dashboard.php';
+                // document.location.href = 'dashboard.php';
             </script>
         ";
     }
@@ -33,27 +34,27 @@ if (isset($_POST["submit"])) {
 <body>
     <h1>Tambah data lagu</h1>
 
-    <form action="" method= "post" enctype="multipart/from-data">
+    <form action="" method= "post" enctype="multipart/form-data">
         <ul>
             <li>
                 <label for="title">Title : </label>
                 <input type="text" name="title" id="title" required>
             </li>
             <li>
-                <label for="title">Artist : </label>
-                <input type="text" name="artist" id="artist">
+                <label for="artist">Artist : </label>
+                <input type="text" name="artist" id="artist" required>
             </li>
             <li>
-                <label for="title">Album : </label>
-                <input type="text" name="album" id="album">
+                <label for="album">Album : </label>
+                <input type="text" name="album" id="album" required>
             </li>
             <li>
-                <label for="title">Gambar : </label>
-                <input type="file" name="genre" id="genre">
+                <label for="gambar">Gambar : </label>
+                <input type="file" name="gambar" id="gambar" required>
             </li>
             <li>
-                <label for="title">File : </label>
-                <input type="file" name="file" id="file">
+                <label for="audio">File : </label>
+                <input type="file" name="musik" id="audio" required>
             </li>
             <li>
                 <button type="submit" name="submit">Tambah Lagu!</button>

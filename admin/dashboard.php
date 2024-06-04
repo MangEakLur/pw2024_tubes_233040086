@@ -14,12 +14,14 @@ if (isset($_POST["cari"]) ) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/dashboard.css">
 </head>
 <body>
     
-    <h1>Daftar Lagu</h1>
+    <h1 class="text-center">Daftar Lagu</h1>
 
-    <a href="tambah.php">Tambah data lagu</a>
+    <a href="tambah.php" class="bg bg-info rounded text-decoration-none text-dark p-2">Tambah data lagu</a>
     <br><br>
 
 <form action="" method="post">
@@ -30,7 +32,8 @@ if (isset($_POST["cari"]) ) {
 </form>
 
 <br>
-<table border="1" cellpadding= "10" cellspacing="0">
+<div class="contaier">
+<table class="table table-success table-striped">
 
 <tr>
     <th>No.</th>
@@ -41,6 +44,7 @@ if (isset($_POST["cari"]) ) {
     <th>File</th>
     <th>Aksi</th>
 </tr>
+
 
 <?php $i = 1; ?>
 <?php foreach( $music as $row ) : ?>
@@ -62,6 +66,7 @@ if (isset($_POST["cari"]) ) {
 <?php endforeach; ?>
 
 </table>
-
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

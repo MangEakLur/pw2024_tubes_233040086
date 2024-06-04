@@ -55,11 +55,11 @@ if (isset($_POST["submit"])) {
             </li>
             <li>
                 <label for="title">Gambar : </label>
-                <input type="text" name="gambar" id="gambar" value="<?= $msc["gambar"]; ?>">
+                <input type="file" name="gambar" id="gambar" value="<?= $msc["gambar"]; ?>">
             </li>
             <li>
                 <label for="title">File : </label>
-                <input type="text" name="file" id="file" value="<?= $msc["file"]; ?>">
+                <input type="file" name="file" id="file" value="<?= $msc["file"]; ?>">
             </li>
             <li>
                 <button type="submit" name="submit">Ubah Lagu!</button>
