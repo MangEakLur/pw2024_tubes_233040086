@@ -183,4 +183,41 @@ move_uploaded_file($tmpName, "../audio/" . $namaFileBaru);
 return $namaFileBaru;
 }
 
+function registrasi($data){
+    global $conn;
+
+    $username = strtolower(stripslashes($data["username"]));
+    $password = mysqli_real_escape_string($conn, $data["password"]);
+    $password2 = mysqli_real_escape_string($conn, $data["password2"]);
+
+    //cek username sudah ada atau belum
+
+    $query = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
+
+    if (mysqli_fetch_assoc($query)) {
+        echo "<script>
+                alert('Username yang dipilih sudah terdaftar!');
+            </script>";
+            return false;
+    }
+
+    //cek konfirmasi password
+    if ( $password !== $password2) {
+        echo "<script>
+            alert('konfirmasi passowrd tidak sesuai!');
+            </script>";
+        return false;
+    }
+
+    // enkripsi password
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    $registerasi = "INSERT INTO user (username, password) VALUES( '$username', '$password')";
+
+    // tambahkan user baru ke database
+    mysqli_query($conn, $registerasi);
+
+    return mysqli_affected_rows($conn);
+}
+
 ?>
