@@ -3,7 +3,7 @@
 $conn = mysqli_connect("localhost", "root", "", "pw2024_tubes_233040086");
 
 
-function query($query){
+function query($query) {
     global $conn;
     $result = mysqli_query($conn, $query);
     $rows = [];
@@ -12,6 +12,7 @@ function query($query){
     }
     return $rows;
 }
+
 
 function tambah($data){
     //ambil data dari tiap elemen dalam form
@@ -57,6 +58,7 @@ function ubah($data){
     $artist = htmlspecialchars($data["artist"]);
     $album = htmlspecialchars($data["album"]);
     $gambarLama = htmlspecialchars($data["gambarLama"]);
+    $audioLama = htmlspecialchars($data["audioLama"]);
     
     //cek apakah user pilih gambar baru atau tidak
     if( $_FILES['gambar'] ['error'] === 4){
@@ -64,16 +66,20 @@ function ubah($data){
     }else {
         $gambar = uploadGambar();
     }
-    
-    $file = htmlspecialchars($data["file"]);
 
+    if( $_FILES['audio'] ['error'] === 4){
+        $audio = $audioLama;
+    }else {
+        $audio = uploadMusik();
+    }
+    
     // query insert data
     $query = "UPDATE music SET 
                     title = '$title',
                     artist = '$artist',
                     album = '$album',
                     gambar = '$gambar',
-                    file = '$file'
+                    file = '$audio'
                     WHERE id = $id
                     ";
     mysqli_query($conn, $query);
@@ -139,10 +145,10 @@ return $namaFileBaru;
 
 
 function uploadMusik() {
-    $namaFile = $_FILES['musik']['name'];
-    $ukuranFile = $_FILES['musik']['size'];
-    $error = $_FILES['musik']['error'];
-    $tmpName = $_FILES['musik']['tmp_name'];
+    $namaFile = $_FILES['audio']['name'];
+    $ukuranFile = $_FILES['audio']['size'];
+    $error = $_FILES['audio']['error'];
+    $tmpName = $_FILES['audio']['tmp_name'];
 
 //cek apakah tidak ada musik yang diupload
 if ($error === 4 ) {
@@ -218,6 +224,33 @@ function registrasi($data){
     mysqli_query($conn, $registerasi);
 
     return mysqli_affected_rows($conn);
+}
+
+function login($data) {
+    global $conn;
+    $username = $data["username"];
+    $password = $data["password"];
+    
+    $role = query("SELECT role FROM user WHERE username = '$username'")[0]['role'];
+
+    $result = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
+
+    // Cek apakah username sudah ada di database
+    if(mysqli_num_rows($result)) {
+        $row = mysqli_fetch_assoc($result);
+        // Cek apakah passwordnya sudah sesuai dengan yang ada di database
+        if(password_verify($password, $row["password"])) {
+            $_SESSION["login"] = true;
+
+            if($role === "admin") {
+                header("location: ./admin/dashboard.php");
+                exit;
+            } else {
+                header("location: ./user/index.php");
+                exit;
+            }
+        }
+    }
 }
 
 ?>

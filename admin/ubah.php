@@ -41,6 +41,7 @@ if (isset($_POST["submit"])) {
     <form action="" method= "post" enctype="multipart/form-data">
         <input type ="hidden" name = "id" value="<?= $msc["id"];?>">
         <input type ="hidden" name = "gambarLama" value="<?= $msc["gambar"];?>">
+        <input type ="hidden" name = "audioLama" value="<?= $msc["file"];?>">
         <ul>
             <li>
                 <label for="title">Title : </label>
@@ -55,13 +56,14 @@ if (isset($_POST["submit"])) {
                 <input type="text" name="album" id="album" value="<?= $msc["album"]; ?>">
             </li>
             <li>
-                <label for="title">Gambar : </label> <br>
+                <label for="gambar">Gambar : </label> <br>
                 <img src="../img/<?= $msc['gambar'];?>" width="80"> <br>
                 <input type="file" name="gambar" id="gambar">
             </li>
             <li>
-                <label for="title">File : </label>
-                <input type="file" name="file" id="file" value="<?= $msc["file"]; ?>">
+                <label for="audio">File : </label>
+                <audio src="../audio/<?= $msc['file'];?>"></audio> <br>
+                <input type="file" name="audio" id="audio">
             </li>
             <li>
                 <button type="submit" name="submit">Ubah Lagu!</button>
