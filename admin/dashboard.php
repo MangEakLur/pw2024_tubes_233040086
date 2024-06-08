@@ -58,8 +58,8 @@ if (isset($_POST["cari"]) ) {
     <source src="../audio/<?php echo $row["file"]; ?>" type="audio/mpeg">
     </audio></td>
     <td>
-        <a href="ubah.php?id=<?= $row["id"]; ?>">ubah</a> |
-        <a href="hapus.php?id=<?= $row["id"]; ?>" onclick="return confirm('yakin?');">hapus</a>
+        <a class="badge text-bg-warning text-decoration-none" href="ubah.php?id=<?= $row["id"]; ?>">ubah</a> 
+        <a class="badge text-bg-danger text-decoration-none" href="hapus.php?id=<?= $row["id"]; ?>" onclick="return confirm('yakin?');">hapus</a>
     </td>
 </tr>
 <?php $i++ ?>
