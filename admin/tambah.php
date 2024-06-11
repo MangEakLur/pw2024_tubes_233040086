@@ -117,7 +117,7 @@ if (isset($_POST["submit"])) {
             </li>
             <li>
                 <label for="audio">File : </label>
-                <input type="file" name="musik" id="audio" required>
+                <input type="file" name="audio" id="audio" required>
             </li>
             <li>
                 <button type="submit" name="submit">Tambah Lagu!</button>
