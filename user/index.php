@@ -16,19 +16,21 @@ if (isset($_POST["cari"]) ) {
     <title>Halaman User</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa;
+            background-color: #121212;
+            color: #ffffff;
         }
         .container {
             width: 80%;
             margin: auto;
             overflow: hidden;
+            padding-top: 20px;
         }
         h1.text-center {
             text-align: center;
-            color: #333;
+            color: #1DB954;
             margin-top: 20px;
         }
         form {
@@ -38,19 +40,21 @@ if (isset($_POST["cari"]) ) {
         input[type="text"] {
             width: 300px;
             padding: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid #333;
             border-radius: 4px;
+            background-color: #282828;
+            color: #ffffff;
         }
         button[type="submit"] {
             padding: 10px 20px;
             border: none;
-            background-color: #28a745;
+            background-color: #1DB954;
             color: white;
             border-radius: 4px;
             cursor: pointer;
         }
         button[type="submit"]:hover {
-            background-color: #218838;
+            background-color: #1ed760;
         }
         table {
             width: 100%;
@@ -58,18 +62,21 @@ if (isset($_POST["cari"]) ) {
             margin-bottom: 20px;
         }
         table, th, td {
-            border: 2px solid #ddd;
+            border: 1px solid #333;
         }
         th, td {
-            padding: 20px;
+            padding: 15px;
             text-align: left;
         }
         th {
-            background-color: #28a745;
+            background-color: #282828;
             color: white;
         }
         tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: #181818;
+        }
+        tr:hover {
+            background-color: #333333;
         }
         img {
             width: 90px;
