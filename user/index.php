@@ -58,10 +58,10 @@ if (isset($_POST["cari"]) ) {
             margin-bottom: 20px;
         }
         table, th, td {
-            border: 1px solid #ddd;
+            border: 2px solid #ddd;
         }
         th, td {
-            padding: 10px;
+            padding: 20px;
             text-align: left;
         }
         th {
@@ -72,7 +72,7 @@ if (isset($_POST["cari"]) ) {
             background-color: #f2f2f2;
         }
         img {
-            width: 100px;
+            width: 90px;
             height: auto;
         }
         audio {
